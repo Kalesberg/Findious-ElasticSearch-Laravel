@@ -11,7 +11,6 @@
                             <thead>
                             <th>Vertical</th>
                             <th>Category Name</th>
-                            <th>Edit</th>
                             <th>Get data</th>
                             <th>Delete</th>
                             <th></th>
@@ -21,7 +20,6 @@
                                 <tr>
                                     <td>{{$data->vertical}}</td>
                                     <td>{{$data->cname}}</td>
-                                    <td><a href="{{route('edit',$data->id)}}" data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                                     <td><a href="{{route('data',$data->id)}}" data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cog"></span></button></a></td>
                                     <td><a href="{{route('delete',$data->id)}}" data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                                 </tr>

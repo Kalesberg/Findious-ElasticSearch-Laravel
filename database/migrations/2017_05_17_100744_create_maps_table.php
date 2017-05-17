@@ -23,7 +23,7 @@ class CreateMapsTable extends Migration
             $table->string('geometry')->nullable();
             $table->string('i_phone')->nullable();
             $table->string('name')->nullable();
-            $table->string('openhour')->nullable();
+            $table->text('openhour')->nullable();
             $table->string('rating')->nullable();
             $table->string('place_id')->nullable();
             $table->text('review')->nullable();

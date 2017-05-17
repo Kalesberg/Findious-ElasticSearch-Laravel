@@ -35,6 +35,18 @@ class CatController extends Controller
         return view('cat.index',compact('datas'));
     }
 
+    function delete($id){
+        $data=Cat::find($id);
+        $data->delete();
+        return redirect()->route('showcat')->with('mesege','Delete complete!');
+    }
+
+    function mdelete($id){
+        $data=Map::find($id);
+        $data->delete();
+        return redirect()->route('mapshow')->with('mesege','Delete complete!');
+    }
+
     public function indexmap(){
         $datas=Map::paginate(15);
         return view('cat.indexmap',compact('datas'));

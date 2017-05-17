@@ -12,7 +12,6 @@
                             <th>Name</th>
                             <th>Adress</th>
                             <th>Rating</th>
-                            <th>Edit</th>
                             <th>Delete</th>
                             <th></th>
                             </thead>
@@ -22,7 +21,6 @@
                                     <td>{{$data->name}}</td>
                                     <td>{{$data->vicinity}}</td>
                                     <td>{{$data->rating}}</td>
-                                    <td><a href="{{route('medit',$data->id)}}" data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                                     <td><a href="{{route('mdelete',$data->id)}}" data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                                 </tr>
                             @endforeach
