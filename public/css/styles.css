@@ -44,6 +44,7 @@ h1 {
     border-radius: 0px;
     position: absolute;
     z-index: 9999999;
+    min-height: 10px;
 }
 .ui-autocomplete.source:hover {
     background: #454545!important;
