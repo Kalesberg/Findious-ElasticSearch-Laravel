@@ -18,5 +18,23 @@ $(document).ready(function () {
                 }
             } );
         },
+        select: function (a, b) {
+            $(this).val(b.item.value);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax( {
+                type: 'get',
+                url: 'searchmain',
+                data: {
+                    s:  $('#s').val(),
+                },
+                success: function( data ) {
+                    response( data.data );
+                }
+            } );
+        }
     });
 });

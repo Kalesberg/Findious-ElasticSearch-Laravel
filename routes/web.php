@@ -32,7 +32,9 @@ Route::get('/detele/{id}/', 'CatController@delete')->name('delete');
 Route::get('/data/{id}', 'CatController@data')->name('data');
 Route::get('/datalin', 'CatController@datalin')->name('datalin');
 Route::get('/mdetele/{id}', 'CatController@mdelete')->name('mdelete');
+Route::get('/detail/{id}', 'CatController@detail')->name('detail');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'CatController@search');
+Route::get('/searchmain', 'CatController@searchmain');

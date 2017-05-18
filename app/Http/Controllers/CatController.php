@@ -47,6 +47,12 @@ class CatController extends Controller
         return redirect()->route('mapshow')->with('mesege', 'Delete complete!');
     }
 
+    function detail($id)
+    {
+        $data = Map::find($id);
+        return view('cat.detail',compact('data'));
+    }
+
     public function indexmap()
     {
         $datas = Map::paginate(15);
@@ -143,6 +149,18 @@ class CatController extends Controller
             ->orWhere('keyword','like','%'.$request->input('s').'%')->select('cname as value','cname as data')->get();
         return response()->json([
             'data'=>$data,
+        ], 200);
+
+    }
+    public function searchmain(Request $request)
+    {
+        $data=Cat::where('vertical','like','%'.$request->input('s').'%')
+            ->orWhere('cname','like','%'.$request->input('s').'%')
+            ->orWhere('keyword','like','%'.$request->input('s').'%')->select('cname as value','cname as data')->get();
+        $value=DB::table('cats')
+            ->join('maps','cats.id','=','maps.id')->select('maps.name as name')->get();
+        return response()->json([
+            'value'=>$value
         ], 200);
 
     }
