@@ -15,8 +15,12 @@
 //    return view('welcome');
 //});
 Route::get('/', function () {
+    return view('index');
+});
+Route::get('/getcat', function () {
     return view('cat.insert');
 });
+
 Route::post('/addcate', 'CatController@insert');
 Route::get('/showcat', 'CatController@index')->name('showcat');
 Route::get('/maplist', function (){

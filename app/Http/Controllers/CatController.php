@@ -116,7 +116,20 @@ class CatController extends Controller
 
     }
     public function datalin(){
-        $user=LinkedIn::get('v1/people/~:(firstName,num-connections,picture-url)');
-        dd($user);
+        if (LinkedIn::isAuthenticated()) {
+            //we know that the user is authenticated now. Start query the API
+            $user=LinkedIn::get('v1/people/~:(firstName,lastName)');
+            echo  "Welcome ".$user['firstName'];
+            exit();
+        }elseif (LinkedIn::hasError()) {
+            echo  "User canceled the login.";
+            exit();
+        }
+
+//if not authenticated
+        $url = LinkedIn::getLoginUrl();
+        echo "<a href='$url'>Login with LinkedIn</a>";
+        exit();
+
     }
 }
