@@ -13,7 +13,7 @@
                                 <label for="email" class="col-md-4 control-label">ID</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->id}}</label>
+                                    <label for="email" class="control-label">{{$data->id}}</label>
                                 </div>
                             </div>
 
@@ -21,7 +21,7 @@
                                 <label for="email" class="col-md-4 control-label">Adress</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->vicinity}}</label>
+                                    <label for="email" class="control-label">{{$data->vicinity}}</label>
                                 </div>
                             </div>
 
@@ -29,7 +29,7 @@
                                 <label for="email" class="col-md-4 control-label">Phone</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->phone}}</label>
+                                    <label for="email" class="control-label">{{$data->phone}}</label>
                                 </div>
                             </div>
 
@@ -37,7 +37,7 @@
                                 <label for="email" class="col-md-4 control-label">Geometry</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->geometry}}</label>
+                                    <label for="email" class="control-label">{{$data->geometry}}</label>
                                 </div>
                             </div>
 
@@ -46,7 +46,7 @@
                                 <label for="email" class="col-md-4 control-label">Iternal phone</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->i_phone}}</label>
+                                    <label for="email" class="control-label">{{$data->i_phone}}</label>
                                 </div>
                             </div>
 
@@ -54,7 +54,7 @@
                                 <label for="email" class="col-md-4 control-label">Name</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->name}}</label>
+                                    <label for="email" class=" control-label">{{$data->name}}</label>
                                 </div>
                             </div>
 
@@ -62,7 +62,7 @@
                                 <label for="email" class="col-md-4 control-label">Open hour</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->openhour}}</label>
+                                    <label for="email" class="control-label">{{$data->openhour}}</label>
                                 </div>
                             </div>
 
@@ -71,7 +71,7 @@
                                 <label for="email" class="col-md-4 control-label">Rating</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->rating}}</label>
+                                    <label for="email" class="control-label">{{$data->rating}}</label>
                                 </div>
                             </div>
 
@@ -80,7 +80,7 @@
                                 <label for="email" class="col-md-4 control-label">Place id</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->place_id}}</label>
+                                    <label for="email" class="control-label">{{$data->place_id}}</label>
                                 </div>
                             </div>
 
@@ -89,7 +89,7 @@
                                 <label for="email" class="col-md-4 control-label">Review</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->review}}</label>
+                                    <label for="email" class="control-label">{{$data->review}}</label>
                                 </div>
                             </div>
 
@@ -97,7 +97,7 @@
                                 <label for="email" class="col-md-4 control-label">Scope</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->scope}}</label>
+                                    <label for="email" class="control-label">{{$data->scope}}</label>
                                 </div>
                             </div>
 
@@ -105,7 +105,7 @@
                                 <label for="email" class="col-md-4 control-label">Types</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->types}}</label>
+                                    <label for="email" class=" control-label">{{$data->types}}</label>
                                 </div>
                             </div>
 
@@ -113,7 +113,7 @@
                                 <label for="email" class="col-md-4 control-label">Url</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->url}}</label>
+                                    <label for="email" class=" control-label">{{$data->url}}</label>
                                 </div>
                             </div>
 
@@ -122,7 +122,7 @@
                                 <label for="email" class="col-md-4 control-label">Website</label>
 
                                 <div class="col-md-6">
-                                    <label for="email" class="col-md-4 control-label">{{$data->website}}</label>
+                                    <label for="email" class="control-label">{{$data->website}}</label>
                                 </div>
                             </div>
 
