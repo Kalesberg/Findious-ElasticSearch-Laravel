@@ -10,4 +10,5 @@
 return [
     'api_key' => env('LINKEDIN_KEY','86z7eiikgmio7b'),
     'api_secret' => env('LINKEDIN_SECRET','L322ydjmJ8Y6Kc6r'),
+    'redirect_uri' => env('http://ineeda.io/signin-linkedin')
 ];

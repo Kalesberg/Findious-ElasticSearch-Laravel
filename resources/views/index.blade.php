@@ -1,4 +1,4 @@
 @extends('layouts.master')
 @section('content')
-	<div class="container"> Here is fronpage</div>
+	<div class="container"></div>
 @endsection

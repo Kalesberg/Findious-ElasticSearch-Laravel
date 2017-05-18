@@ -35,3 +35,4 @@ Route::get('/mdetele/{id}', 'CatController@mdelete')->name('mdelete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search', 'CatController@search');
