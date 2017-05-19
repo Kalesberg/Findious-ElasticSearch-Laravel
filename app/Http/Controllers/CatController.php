@@ -168,7 +168,7 @@ class CatController extends Controller
             ->where('vertical','like','%'.$request->input('s').'%')
             ->orWhere('keyword','like','%'.$request->input('s').'%')
             ->orWhere('cname','like','%'.$request->input('s').'%')
-            ->select('maps.name as name')->get();
+            ->select('maps.name as name','maps.url as url')->get();
         return response()->json([
             'value'=>$value
         ], 200);
