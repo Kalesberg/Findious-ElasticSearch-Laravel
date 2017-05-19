@@ -28,7 +28,7 @@ Route::get('/maplist', function (){
 });
 
 Route::get('/mapshow/', 'CatController@indexmap')->name('mapshow');
-Route::get('/mapbycatm/{id}', 'CatController@mapbycat')->name('mapbycat');
+Route::get('/mapbycat/{id}', 'CatController@mapbycat')->name('mapbycat');
 
 Route::get('/detele/{id}/', 'CatController@delete')->name('delete');
 Route::get('/data/{id}', 'CatController@data')->name('data');
@@ -40,3 +40,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'CatController@search');
 Route::get('/searchmain', 'CatController@searchmain');
+Route::get('/searchbystate', 'CatController@searchbystate');

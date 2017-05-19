@@ -38,9 +38,14 @@
     </aside>
     <div id="morphsearch" class="morphsearch">
         <form class="morphsearch-form">
-            <input class="morphsearch-input" type="search" placeholder="Search..." autocomplete="off" name="countries" id="s"/>
-            <div id="suggestions-container" style="position: relative; float: left; width: 400px; margin: 10px;"></div>
-            <button class="morphsearch-submit" type="submit">Search</button>
+            <div id="cate">
+                <input class="morphsearch-input" type="search" placeholder="By category" autocomplete="off" name="cate" id="s"/>
+                <button class="morphsearch-submit" type="submit">Search</button>
+            </div>
+            <div id="state" style="display: none">
+                <input class="morphsearch-input" type="search" placeholder="By state" autocomplete="off" name="state" id="sta"/>
+                <button class="morphsearch-submit" type="submit">Search</button>
+            </div>
         </form>
         <div class="morphsearch-content">
             <div class="dummy-column">

@@ -158,16 +158,23 @@ class CatController extends Controller
         ], 200);
 
     }
+    public function searchbystate(Request $request)
+    {
+        $data=Map::where('state','like','%'.$request->input('sta').'%')
+            ->select('state as value','state as data')->get();
+        return response()->json([
+            'data'=>$data,
+        ], 200);
+
+    }
     public function searchmain(Request $request)
     {
-        $data=Cat::where('vertical','like','%'.$request->input('s').'%')
-            ->orWhere('cname','like','%'.$request->input('s').'%')
-            ->orWhere('keyword','like','%'.$request->input('s').'%')->select('cname as value','cname as data')->get();
         $value=DB::table('cats')
             ->join('maps','cats.id','=','maps.id')
             ->where('vertical','like','%'.$request->input('s').'%')
             ->orWhere('keyword','like','%'.$request->input('s').'%')
             ->orWhere('cname','like','%'.$request->input('s').'%')
+            ->where('state','like','%'.$request->input('sta').'%')
             ->select('maps.name as name','maps.url as url')->get();
         return response()->json([
             'value'=>$value
