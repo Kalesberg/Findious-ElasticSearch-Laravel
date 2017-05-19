@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Artesaos\LinkedIn\LinkedinServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'LinkedIn'  => \Artesaos\LinkedIn\Facades\LinkedIn::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

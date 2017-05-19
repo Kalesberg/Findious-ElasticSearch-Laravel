@@ -68,7 +68,7 @@ class CatController extends Controller
     public function data($id)
     {
         $data = Cat::find($id);
-        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s&libraries=places');
+        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s&libraries=places');
         $value = json_decode($response);
         foreach ($value->results as $item) {
             $sav = new Map();
@@ -133,22 +133,9 @@ class CatController extends Controller
     {
         if (LinkedIn::isAuthenticated()) {
             //we know that the user is authenticated now. Start query the API
-            LinkedIn::setAccessToken('access_token_from_db');
 
-            $options = ['json'=>
-                [
-                    'comment' => 'Im testing Happyr LinkedIn client with Laravel Framework! https://github.com/artesaos/laravel-linkedin',
-                    'visibility' => [
-                        'code' => 'anyone'
-                    ]
-                ]
-            ];
-
-            $result = LinkedIn::post('v1/people/~/shares', $options);
-            dd($result);
-            exit();
-        } elseif (LinkedIn::hasError()) {
-            echo "User canceled the login.";
+            $user=LinkedIn::get('v1/people/~:(firstName,lastName)');
+            echo  "Welcome ".$user['firstName'];
             exit();
         }
 
