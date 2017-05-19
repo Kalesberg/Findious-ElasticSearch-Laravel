@@ -53,6 +53,12 @@ class CatController extends Controller
         return view('cat.detail',compact('data'));
     }
 
+    function mapbycat($id)
+    {
+        $datas = Map::where('cat_id',$id)->paginate(15);
+        return view('cat.mapbycat',compact('datas'));
+    }
+
     public function indexmap()
     {
         $datas = Map::paginate(15);
@@ -119,7 +125,7 @@ class CatController extends Controller
             $sav->save();
         }
 
-        return redirect()->route('mapshow')->with('mesege', 'Load data google places compleye!');
+        return redirect()->route('mapbycat',$id)->with('mesege', 'Load data google places compleye!');
 
     }
 

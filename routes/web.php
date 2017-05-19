@@ -27,7 +27,9 @@ Route::get('/maplist', function (){
     return view('cat.maplist');
 });
 
-Route::get('/mapshow', 'CatController@indexmap')->name('mapshow');
+Route::get('/mapshow/', 'CatController@indexmap')->name('mapshow');
+Route::get('/mapbycat/{id}', 'CatController@mapbycat')->name('mapbycat');
+
 Route::get('/detele/{id}/', 'CatController@delete')->name('delete');
 Route::get('/data/{id}', 'CatController@data')->name('data');
 Route::get('/datalin', 'CatController@datalin')->name('datalin');
