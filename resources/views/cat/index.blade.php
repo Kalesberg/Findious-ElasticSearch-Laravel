@@ -19,7 +19,7 @@
                             @foreach($datas as $key=>$data)
                                 <tr>
                                     <td>{{$data->vertical}}</td>
-                                    <td>{{$data->cname}}</td>
+                                    <td><a href="{{route('mapbycat', $data->id)}}">{{$data->cname}}</a></td>
                                     <td><a href="{{route('data',$data->id)}}" data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cog"></span></button></a></td>
                                     <td><a href="{{route('delete',$data->id)}}" data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                                 </tr>

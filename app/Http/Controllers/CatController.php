@@ -133,8 +133,19 @@ class CatController extends Controller
     {
         if (LinkedIn::isAuthenticated()) {
             //we know that the user is authenticated now. Start query the API
-            $user = LinkedIn::get('v1/people/~:(firstName,lastName)');
-            echo "Welcome " . $user['firstName'];
+            LinkedIn::setAccessToken('access_token_from_db');
+
+            $options = ['json'=>
+                [
+                    'comment' => 'Im testing Happyr LinkedIn client with Laravel Framework! https://github.com/artesaos/laravel-linkedin',
+                    'visibility' => [
+                        'code' => 'anyone'
+                    ]
+                ]
+            ];
+
+            $result = LinkedIn::post('v1/people/~/shares', $options);
+            dd($result);
             exit();
         } elseif (LinkedIn::hasError()) {
             echo "User canceled the login.";
