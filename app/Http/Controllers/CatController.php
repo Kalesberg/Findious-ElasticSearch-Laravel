@@ -158,7 +158,11 @@ class CatController extends Controller
             ->orWhere('cname','like','%'.$request->input('s').'%')
             ->orWhere('keyword','like','%'.$request->input('s').'%')->select('cname as value','cname as data')->get();
         $value=DB::table('cats')
-            ->join('maps','cats.id','=','maps.id')->select('maps.name as name')->get();
+            ->join('maps','cats.id','=','maps.id')
+            ->where('vertical','like','%'.$request->input('s').'%')
+            ->orWhere('keyword','like','%'.$request->input('s').'%')
+            ->orWhere('cname','like','%'.$request->input('s').'%')
+            ->select('maps.name as name')->get();
         return response()->json([
             'value'=>$value
         ], 200);

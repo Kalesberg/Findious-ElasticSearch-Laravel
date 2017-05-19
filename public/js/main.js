@@ -32,7 +32,14 @@ $(document).ready(function () {
                     s:  $('#s').val(),
                 },
                 success: function( data ) {
-                    response( data.data );
+                    $('.dummy-column').empty();
+                    $('.dummy-column').first().append("<h2>Business</h2>");
+                    $('.dummy-column').eq(1).append("<h2>POPULAR</h2>");
+                    $('.dummy-column').last().append("<h2>Recent</h2>");
+
+                    $.each(data.value, function( index, value ) {
+                        $('.dummy-column').append("<a class='dummy-media-object' href='#'><img src='img/thumbs/TooltipStylesInspiration.png' alt='TooltipStylesInspiration'/>"+value.name +"</a>");
+                    });
                 }
             } );
         }

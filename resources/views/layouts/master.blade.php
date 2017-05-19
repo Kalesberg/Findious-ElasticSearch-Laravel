@@ -42,28 +42,16 @@
             <div id="suggestions-container" style="position: relative; float: left; width: 400px; margin: 10px;"></div>
             <button class="morphsearch-submit" type="submit">Search</button>
         </form>
-        <div class="morphsearch-content" style="display: none">
+        <div class="morphsearch-content">
             <div class="dummy-column">
-                <h2>People</h2>
-                <a class="dummy-media-object" href="http://twitter.com/SaraSoueidan">
-                    <img class="round" src="http://0.gravatar.com/avatar/81b58502541f9445253f30497e53c280?s=50&d=identicon&r=G" alt="Sara Soueidan"/>
-                    <h3>Sara Soueidan</h3>
-                </a>
+                <h2>Business</h2>
 
             </div>
             <div class="dummy-column">
-                <h2>Popular</h2>
-                <a class="dummy-media-object" href="http://tympanus.net/codrops/2014/08/05/page-preloading-effect/">
-                    <img src="img/thumbs/PagePreloadingEffect.png" alt="PagePreloadingEffect"/>
-                    <h3>Page Preloading Effect</h3>
-                </a>
+                <h2>POPULAR</h2>
             </div>
             <div class="dummy-column">
                 <h2>Recent</h2>
-                <a class="dummy-media-object" href="http://tympanus.net/codrops/2014/10/07/tooltip-styles-inspiration/">
-                    <img src="img/thumbs/TooltipStylesInspiration.png" alt="TooltipStylesInspiration"/>
-                    <h3>Tooltip Styles Inspiration</h3>
-                </a>
             </div>
         </div><!-- /morphsearch-content -->
         <span class="morphsearch-close"></span>
