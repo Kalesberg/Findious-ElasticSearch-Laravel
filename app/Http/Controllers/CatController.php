@@ -68,14 +68,11 @@ class CatController extends Controller
     public function data($id)
     {
         $data = Cat::find($id);
-        //$response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s&libraries=places');
-        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '&location=18.1122747,-78.3973299&radius=10000&key=AIzaSyBlnmgIOMNFb1QsB5W8feI546G4jUFnC7I');
-       
+        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/radarsearch/json?location=18.109581,-77.297508&radius=10000&type=' . urlencode($data->cname) . '&key=AIzaSyBlnmgIOMNFb1QsB5W8feI546G4jUFnC7I');
         $value = json_decode($response);
-        dd($value);
         foreach ($value->results as $item) {
             $sav = new Map();
-            $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s');
+            $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyBlnmgIOMNFb1QsB5W8feI546G4jUFnC7I');
             $detailjson = json_decode($detail);
             foreach ($detailjson->result->address_components as $part) {
 
@@ -123,7 +120,7 @@ class CatController extends Controller
                 $sav->vicinity = $detailjson->result->vicinity;
             if (property_exists($detailjson->result, 'website'))
                 $sav->website = $detailjson->result->website;
-            $sav->types = json_encode($item->types);
+            $sav->types = json_encode($sav->types);
 
             $sav->save();
         }
