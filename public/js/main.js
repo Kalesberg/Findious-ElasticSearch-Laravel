@@ -38,7 +38,7 @@ $(document).ready(function () {
                     $('.dummy-column').last().append("<h2>Recent</h2>");
 
                     $.each(data.value, function( index, value ) {
-                        $('.dummy-column').append("<a class='dummy-media-object' href='"+ value.url +"'><img src='img/thumbs/TooltipStylesInspiration.png' alt='TooltipStylesInspiration'/>"+value.name +"</a>");
+                        $('.dummy-column').append("<a class='dummy-media-object' href='"+ value.url +"'><img src='"+ value.icon+"' alt='TooltipStylesInspiration'/>"+value.name +"</a>");
                     });
                     $('#morphsearch').css('height','400px');
                     $('.morphsearch-content').css('top','255px');

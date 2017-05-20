@@ -30,6 +30,7 @@ class CreateMapsTable extends Migration
             $table->string('scope')->nullable();
             $table->string('types')->nullable();
             $table->string('url')->nullable();
+            $table->string('icon')->nullable();
             $table->string('utc_offset')->nullable();
             $table->string('vicinity')->nullable();
             $table->string('website')->nullable();

@@ -68,11 +68,12 @@ class CatController extends Controller
     public function data($id)
     {
         $data = Cat::find($id);
-        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s&libraries=places');
+        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/radarsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyBlnmgIOMNFb1QsB5W8feI546G4jUFnC7I');
         $value = json_decode($response);
         foreach ($value->results as $item) {
             $sav = new Map();
-            $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s');
+            $sav->icon=$item->icon;
+            $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyBlnmgIOMNFb1QsB5W8feI546G4jUFnC7I');
             $detailjson = json_decode($detail);
             foreach ($detailjson->result->address_components as $part) {
 
@@ -125,6 +126,66 @@ class CatController extends Controller
             $sav->save();
         }
 
+        while(isset($value->next_page_token)){
+            $response = file_get_contents('https://maps.googleapis.com/maps/api/place/radarsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s');
+            $value = json_decode($response);
+            foreach ($value->results as $item) {
+                $sav = new Map();
+                $sav->icon = $item->icon;
+                $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyCvA3m5SpXq8N6yRDZ6azoh-eSNg2hFf_s');
+                $detailjson = json_decode($detail);
+                foreach ($detailjson->result->address_components as $part) {
+
+                    foreach ($part->types as $part1)
+                        switch ($part1) {
+                            case 'administrative_area_level_1' :
+                                $sav->state = $part->long_name;
+                                break;
+                            case 'country' :
+                                $sav->country = $part->long_name;
+                                break;
+                            case 'administrative_area_level_2' :
+                                $sav->city = $part->long_name;
+                                break;
+                            case 'locality' :
+                                $sav->city = $part->long_name;
+                                break;
+                        }
+                }
+                $sav->cat_id = $id;
+                if (property_exists($detailjson->result, 'formatted_phone_number'))
+                    $sav->phone = $detailjson->result->formatted_phone_number;
+                if (property_exists($detailjson->result, 'formatted_phone_number'))
+                    $sav->phone = $detailjson->result->formatted_phone_number;
+                $sav->geometry = json_encode($detailjson->result->geometry->location);
+                if (property_exists($detailjson->result, 'international_phone_number'))
+                    $sav->i_phone = $detailjson->result->international_phone_number;
+                if (property_exists($detailjson->result, 'name'))
+                    $sav->name = $detailjson->result->name;
+                if (property_exists($detailjson->result, 'opening_hours'))
+                    $sav->openhour = json_encode($detailjson->result->opening_hours->weekday_text);
+                if (property_exists($detailjson->result, 'rating'))
+                    $sav->rating = $detailjson->result->rating;
+                if (property_exists($detailjson->result, 'reviews'))
+                    $sav->review = json_encode($detailjson->result->reviews);
+                if (property_exists($detailjson->result, 'scope'))
+                    $sav->scope = $detailjson->result->scope;
+                if (property_exists($detailjson->result, 'types'))
+                    $sav->types = json_encode($detailjson->result->types);
+                if (property_exists($detailjson->result, 'url'))
+                    $sav->url = $detailjson->result->url;
+                if (property_exists($detailjson->result, 'utc_offset'))
+                    $sav->utc_offset = $detailjson->result->utc_offset;
+                if (property_exists($detailjson->result, 'vicinity'))
+                    $sav->vicinity = $detailjson->result->vicinity;
+                if (property_exists($detailjson->result, 'website'))
+                    $sav->website = $detailjson->result->website;
+                $sav->types = json_encode($item->types);
+
+                $sav->save();
+            }
+        }
+
         return redirect()->route('mapbycat',$id)->with('mesege', 'Load data google places compleye!');
 
     }
@@ -168,12 +229,10 @@ class CatController extends Controller
     public function searchmain(Request $request)
     {
         $value=DB::table('cats')
-            ->join('maps','cats.id','=','maps.id')
-            ->where('vertical','like','%'.$request->input('s').'%')
-            ->orWhere('keyword','like','%'.$request->input('s').'%')
-            ->orWhere('cname','like','%'.$request->input('s').'%')
-            ->where('state','like','%'.$request->input('sta').'%')
-            ->select('maps.name as name','maps.url as url')->get();
+            ->join('maps','cats.id','=','maps.cat_id')
+            ->where('cname',$request->input('s'))
+            ->where('vicinity','like','%'.$request->input('sta').'%')
+            ->select('maps.name as name','maps.url as url','maps.icon as icon')->get();
         return response()->json([
             'value'=>$value
         ], 200);
