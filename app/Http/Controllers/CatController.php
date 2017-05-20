@@ -68,7 +68,8 @@ class CatController extends Controller
     public function data($id)
     {
         $data = Cat::find($id);
-        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/radarsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyBlnmgIOMNFb1QsB5W8feI546G4jUFnC7I');
+
+        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/radarsearch/json?location=18.109581,-77.297508&radius=10000&type=' . urlencode($data->cname) . '&key=AIzaSyBlnmgIOMNFb1QsB5W8feI546G4jUFnC7I');
         $value = json_decode($response);
         foreach ($value->results as $item) {
             $sav = new Map();
@@ -121,7 +122,7 @@ class CatController extends Controller
                 $sav->vicinity = $detailjson->result->vicinity;
             if (property_exists($detailjson->result, 'website'))
                 $sav->website = $detailjson->result->website;
-            $sav->types = json_encode($item->types);
+            $sav->types = json_encode($sav->types);
 
             $sav->save();
         }
