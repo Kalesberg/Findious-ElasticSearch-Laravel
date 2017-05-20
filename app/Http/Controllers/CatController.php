@@ -68,14 +68,14 @@ class CatController extends Controller
     public function data($id)
     {
         $data = Cat::find($id);
-        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyBtHi3yG-9dpB-_075m91m9Et2C2hg57Jk');
+        $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyA2XmPVRGNlaSkcifgqgxJA41j61038Xxc');
+        dd($response);
         $value = json_decode($response);
         foreach ($value->results as $item) {
             $sav = new Map();
             $sav->icon=$item->icon;
-            $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyBtHi3yG-9dpB-_075m91m9Et2C2hg57Jk');
+            $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyA2XmPVRGNlaSkcifgqgxJA41j61038Xxc');
             $detailjson = json_decode($detail);
-            dd($detailjson);
             foreach ($detailjson->result->address_components as $part) {
 
                 foreach ($part->types as $part1)
@@ -128,12 +128,12 @@ class CatController extends Controller
         }
 
         while(isset($value->next_page_token)){
-            $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyBtHi3yG-9dpB-_075m91m9Et2C2hg57Jk');
+            $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyA2XmPVRGNlaSkcifgqgxJA41j61038Xxc&pagetoken='. $value->next_page_token.'');
             $value = json_decode($response);
             foreach ($value->results as $item) {
                 $sav = new Map();
                 $sav->icon = $item->icon;
-                $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyBtHi3yG-9dpB-_075m91m9Et2C2hg57Jk');
+                $detail = file_get_contents('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $item->place_id . '&key=AIzaSyA2XmPVRGNlaSkcifgqgxJA41j61038Xxc');
                 $detailjson = json_decode($detail);
                 foreach ($detailjson->result->address_components as $part) {
 
