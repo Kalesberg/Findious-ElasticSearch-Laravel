@@ -69,7 +69,6 @@ class CatController extends Controller
     {
         $data = Cat::find($id);
         $response = file_get_contents('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($data->cname) . '+in+Jamaica&country:JM&key=AIzaSyA2XmPVRGNlaSkcifgqgxJA41j61038Xxc');
-        dd($response);
         $value = json_decode($response);
         foreach ($value->results as $item) {
             $sav = new Map();
