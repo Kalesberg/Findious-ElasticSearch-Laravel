@@ -1,14 +1,14 @@
 working with git
 
-1. clone the repo
+### 1. clone the repo ###
  
 ```
 #!git
 
 $ git clone git@bitbucket.org:nhinq/ineeda.git
 ```
-
-2. checkout your branch and do you code
+### 
+2. checkout your branch and do you code ###
  
 ```
 #!git
@@ -16,7 +16,7 @@ $ git clone git@bitbucket.org:nhinq/ineeda.git
 $ git fetch && git checkout {BRANCH}
 ```
 
-3. Commit to your branch
+### 3. Commit to your branch ###
 
 ```
 #!git
@@ -26,4 +26,4 @@ $ git fetch && git checkout {BRANCH}
  $ git push origin {BRANCH}
 ```
 
-4. Request Pull to master
+### 4. Request Pull to master ###
