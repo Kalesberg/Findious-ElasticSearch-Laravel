@@ -12,9 +12,11 @@
                     </div>
                     <div class="search">
                         <form class="search-container" action="//llamaswill.tumblr.com/search">
-                            <div class="boder">
-                                <input id="search-box" type="text" class="search-box" name="q"/>
-                                <img src="img/s.png" class="search-icon"></label>
+                            <div class="boder" style="position: relative">
+                                <div class="search-box" style="position: relative">
+                                    <input id="search-box" type="text" class="search-box" name="q"/>
+                                    <img src="img/s.png" class="search-icon"></label>
+                                </div>
                             </div>
                             <input type="submit" id="search-submit"/>
                         </form>

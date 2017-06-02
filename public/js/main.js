@@ -12,7 +12,7 @@ $(document).ready(function () {
     //         "box-shadow": "0 0 0 0 none"});
     // });
     $('.search-icon, #search-box').hover(function () {
-        $('#search-box').css({
+        $('.search-box').css({
         '-webkit-transition': 'width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s',
         'transition': 'width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s',
         'border': 'none',
@@ -24,11 +24,6 @@ $(document).ready(function () {
         'color': 'black',
         'border-radius': '0px',
 
-        });
-        $('.search-icon').css({
-            '-webkit-transition': 'all 1.6s',
-            'transition': 'width 1.6s',
-            'left':'1000px'
         });
         $('.boder').css("border-bottom", "solid 10px #000");
         $('.text-ex').show('slow');
