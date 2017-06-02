@@ -17,6 +17,9 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/search-list', function () {
+    return view('list');
+});
 Route::get('/getcat', function () {
     return view('cat.insert');
 });

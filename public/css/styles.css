@@ -2,10 +2,12 @@
     padding: 0;
     margin: 0;
 }
-.task-bar{
+
+.task-bar {
     height: 700px;
     background-color: #c8c8c8;
 }
+
 .logo {
     padding: 0;
     width: 100%;
@@ -17,7 +19,7 @@
     padding: 0px;
 }
 
-.textp p{
+.textp p {
     font-size: 40px;
     margin-top: 10%;
 }
@@ -32,23 +34,35 @@
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    background: #ebebeb;
-    font-size: 30px;
+    background: #fff;
+    font-size: 40px;
 }
+
+.search-box1 {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding-left: 15px;
+    cursor: pointer;: text;
+    width: 100%;
+    color: black;
+    border-radius: 0px;
+    font-size: 40px;
+    height: 100px;
+}
+
 .search-box + label .search-icon {
     color: black;
 }
-.search-box:hover {
-    color: white;
-    background: #c8c8c8;
-    box-shadow: 0 0 0 5px #3d4752;
-}
+
 .search-box:hover + label .search-icon {
     color: white;
 }
+
 .search-box:focus + label .search-icon {
     color: black;
 }
+
 .search-box:not(:focus) {
     text-indent: -5000px;
 }
@@ -59,11 +73,26 @@
 }
 
 .search-icon {
-    position: relative;
-    left: -91px;
+    position: absolute;
+    left: 21px;
+    top: 258px;
     color: white;
     cursor: pointer;
 }
 
+.search-icon1 {
+    position: absolute;
+    right: 15px;
+    top:10px;
+}
+
+
+body{
+    background-color: #fff;
+}
+
+.earch:hover{
+    border: solid 3px green;
+}
 
 /*end search css*/

@@ -18,11 +18,20 @@ $(document).ready(function () {
         'box-shadow': 'none',
         'padding-left': '15px',
         'cursor': 'text',
-        'width': '850px',
-        'background': '#ebebeb',
+        'width': '100%',
         'color': 'black',
         'border-radius': '0px',
+
         });
+        $('.search-icon').css({
+            '-webkit-transition': 'all 1.6s',
+            'transition': 'width 1.6s',
+            'left':'1000px'
+        });
+        $('.boder').css("border-bottom", "solid 10px #000");
         $('.text-ex').show('slow');
+    });
+    $('.search-icon').click(function () {
+        window.location.href = '/search-list';
     });
 });

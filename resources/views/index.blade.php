@@ -12,19 +12,22 @@
                     </div>
                     <div class="search">
                         <form class="search-container" action="//llamaswill.tumblr.com/search">
-                            <input id="search-box" type="text" class="search-box" name="q" />
-                            <img src="img/s.png" class="search-icon"></label>
-                            <input type="submit" id="search-submit" />
+                            <div class="boder">
+                                <input id="search-box" type="text" class="search-box" name="q"/>
+                                <img src="img/s.png" class="search-icon"></label>
+                            </div>
+                            <input type="submit" id="search-submit"/>
                         </form>
                     </div>
                     <div class="">
-                        <p class="text-ex" style="padding-left: 695px; display: none">Ex. Cafe in Montego Bay</p>
+                        <p class="text-ex" style="float: right; display: none">Ex. Cafe in Montego Bay</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        document.addEventListener("touchstart", function(){}, true);
+        document.addEventListener("touchstart", function () {
+        }, true);
     </script>
 @endsection
