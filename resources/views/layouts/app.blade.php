@@ -20,6 +20,18 @@
 </head>
 <body>
     <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 pading0">
+                    <div class="col-md-2 task-bar pading0">
+                        <div class="logo">
+                            <img src="img/Untitled.png" width="100%" height="100%">
+                        </div>
+                    </div>
+                    @yield('content')
+                </div>
+            </div>
+        </div>
         {{--<nav class="navbar navbar-default navbar-static-top">--}}
             {{--<div class="container">--}}
                 {{--<div class="navbar-header">--}}
@@ -76,7 +88,7 @@
             {{--</div>--}}
         {{--</nav>--}}
 
-        @yield('content')
+
     </div>
 
     <!-- Scripts -->
