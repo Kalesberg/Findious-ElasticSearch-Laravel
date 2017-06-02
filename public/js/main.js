@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var x=$(document).height();
+    $('.task-bar').css('height',x);
     // $('.search-icon').hover(function () {
     //     $('#search-box').css({"color": "white",
     //     "background": "#c8c8c8",
