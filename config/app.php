@@ -179,6 +179,8 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Artesaos\LinkedIn\LinkedinServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+
+        Cviebrock\LaravelElasticsearch\ServiceProvider::class,
     ],
 
     /*
@@ -230,6 +232,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'LinkedIn'  => \Artesaos\LinkedIn\Facades\LinkedIn::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Elasticsearch' => Cviebrock\LaravelElasticsearch\Facade::class,
     ],
 
 ];
